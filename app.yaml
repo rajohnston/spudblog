@@ -1,0 +1,17 @@
+application: spuddit
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+libraries:
+- name: django
+  version: "1.3"  
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: "djangosettings"
+
+handlers:
+
+- url: /.*
+  script: corecode.app
