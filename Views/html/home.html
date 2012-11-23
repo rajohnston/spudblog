@@ -2,18 +2,6 @@
 
 {% block main %}
 
-<div class="row">
-	<div class="span12">
-		<div class="well">
-  			<p>Make every
-  			<a onclick='javascript:change_spud_divider("2")'><button class="btn btn-large {% ifequal spud_divider 2 %}btn-primary{% endifequal %}" type="button">Second</button></a>
-  			<a onclick='javascript:change_spud_divider("3")'><button class="btn btn-large {% ifequal spud_divider 3 %}btn-primary{% endifequal %}" type="button">Third</button></a>
-  			<a onclick='javascript:change_spud_divider("4")'><button class="btn btn-large {% ifequal spud_divider 4 %}btn-primary{% endifequal %}" type="button">Fourth</button></a>
-  			post a <img style="height:80px;" src="styles/images/potato.png">  
-			</p>
-		</div>		
-	</div>		
-</div>
 
 <div class="row">
 			
@@ -37,4 +25,20 @@
 {% endfor %}		
 					 
 	</div>
+
+<div class="row">
+	<div class="span12">
+		<div class="well">
+  			<p>Make every
+  			<a onclick='javascript:change_spud_divider("2")'><button class="btn btn-large {% ifequal spud_divider 2 %}btn-primary{% endifequal %}" type="button">Second</button></a>
+  			<a onclick='javascript:change_spud_divider("3")'><button class="btn btn-large {% ifequal spud_divider 3 %}btn-primary{% endifequal %}" type="button">Third</button></a>
+  			<a onclick='javascript:change_spud_divider("4")'><button class="btn btn-large {% ifequal spud_divider 4 %}btn-primary{% endifequal %}" type="button">Fourth</button></a>
+  			post a <img style="height:80px;" src="styles/images/potato.png">  
+			</p>
+		</div>		
+	</div>		
+</div>	
+	
+	
+	
 {% endblock %}
