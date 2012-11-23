@@ -1,0 +1,19 @@
+{% extends base_template %}
+
+{% block main %}
+<div class="row" >
+	<div class="span6 offset3">
+		<h1>{{post.title}}</h1>
+		<br/>
+		<p>{% if post.text %}{{post.text|linebreaksbr}}{% endif %}</p>
+		<br/>
+  		<a href="/edit?key={{post.key}}"><button class="btn btn-large btn-warning" type="button">Edit</button></a>
+  		<a onclick='javascript:deletepost("{{post.key}}")'><button class="btn btn-large btn-danger" type="button">Delete</button></a>
+		<br/><br/>
+		<div class="well" style = "display: none;" id="delete{{post.key}}">
+  		<a href="/delete?key={{post.key}}"><button class="btn btn-large btn-danger" type="button">Confirm Delete</button></a>
+  		<a onclick='javascript:canceldelete("{{post.key}}")'><button class="btn btn-large btn-info" type="button">Cancel Delete</button></a>
+		</div>		
+	</div>
+</div>
+{% endblock %}

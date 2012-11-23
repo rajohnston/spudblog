@@ -1,0 +1,43 @@
+{% extends base_template %}
+
+{% block main %}
+
+<div class="row">
+	<div class="span12">
+		<div class="hero-unit">
+  			<p>SPUDDIT, Where every
+  			<a onclick='javascript:change_spud_divider("2")'><button class="btn btn-large {% ifequal spud_divider 2 %}btn-primary{% endifequal %}" type="button">Second</button></a>
+  			<a onclick='javascript:change_spud_divider("3")'><button class="btn btn-large {% ifequal spud_divider 3 %}btn-primary{% endifequal %}" type="button">Third</button></a>
+  			<a onclick='javascript:change_spud_divider("4")'><button class="btn btn-large {% ifequal spud_divider 4 %}btn-primary{% endifequal %}" type="button">Fourth</button></a>
+  			post is a <img style="height:60px;" src="styles/images/potato.png">  
+			</p>
+		</div>		
+	</div>		
+</div>
+
+<div class="row">
+			
+{% for post in posts %}
+	<a href="/viewpost?key={{post.key}}">
+	<div class="span3" id="{{post.key}}" >
+		<h2>{{post.title}}</h2>
+		{% if forloop.counter|divisibleby:spud_divider %}
+		<div class="hiddendiv">
+			<img style="width: 80%; padding:10%;" src="styles/images/potato.png">  
+			<p class="hiddenpost" style="display: none;">{{post.text|truncatewords_html:50}}</p>
+		</div>
+		{% else %}
+		<p>{{post.text|truncatewords_html:50}}</p>
+		{% endif %}	
+	</div>
+	</a>
+
+{% if forloop.counter|divisibleby:4 %}
+</div>
+<div class="row">
+{% else %}{% endif %}		
+
+{% endfor %}		
+					 
+	</div>
+{% endblock %}

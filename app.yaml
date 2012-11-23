@@ -13,5 +13,14 @@ env_variables:
 
 handlers:
 
+- url: /styles
+  static_dir: styles
+  
+- url: /Views/bootstrap
+  static_dir: Views/bootstrap
+
+- url: /Views/Viewcontrollers
+  static_dir: Views/Viewcontrollers
+ 
 - url: /.*
-  script: corecode.app
+  script: Controllers.corecode.app

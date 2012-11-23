@@ -1,0 +1,24 @@
+{% extends base_template %}
+
+{% block main %}
+<div class="row" >
+	<div class="span6 offset3">
+		<form action="/edit" enctype="multipart/form-data" method="post">
+  		<input type="hidden" name="key" value="{{post.key}}"> 
+  		<input type="hidden" name="add_or_edit" value="{{add_or_edit}}"> 
+
+  			<fieldset>
+    		<legend>{{add_or_edit|upper}} a Post</legend>
+    		<label>Title</label>
+    			<input type="text" name="title" placeholder="Title here..." value="{% if post.title %}{{post.title}}{% endif %}">
+    			<span class="help-block"></span>
+    		<label>Content</label>
+	
+                <textarea class="input-xlarge"  rows="5"  name="text" placeholder="Post content here...">{% if post.text %}{{post.text}}{% endif %}</textarea>
+    			<span class="help-block"></span>
+    			<button type="submit" class="btn">Submit</button>
+  			</fieldset>
+		</form>	
+	</div>
+</div>
+{% endblock %}
