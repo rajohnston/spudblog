@@ -2,7 +2,21 @@
 
 {% block main %}
 <div class="row" >
-	<div class="span6 offset3">
+	<div class="span2">
+		<br/>
+    	<div class="calendar">
+        	<div class="calendar-head">
+         	{{post.datecreated|date:"l"}}
+            </div>
+            <div class="calendar-body">
+           	{{post.datecreated|date:"d"}}<br/>
+        		<div class="calendar-month">
+        		{{post.datecreated|date:"M"}}
+        	 	</div>
+         	</div>		
+         </div>
+	</div>
+	<div class="span8">
 		<h1>{{post.title}}</h1>
 		<br/>
 		<p>{% if post.text %}{{post.text|linebreaksbr}}{% endif %}</p>
@@ -15,5 +29,8 @@
   		<a onclick='javascript:canceldelete("{{post.key}}")'><button class="btn btn-large btn-info" type="button">Cancel Delete</button></a>
 		</div>		
 	</div>
+	<div class="span2">
+	 <img id="spud{{post.key}}" style="width: 100%; padding:0%;" src="styles/images/upright_potato_eyes.png">  
+	</div>	
 </div>
 {% endblock %}

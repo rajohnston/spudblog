@@ -5,7 +5,15 @@
 $(document).ready(function() {
 
 
+$('.spud').live('mouseover', function() {
 
+$(this).attr("src","styles/images/upright_potato_eyes.png");
+	});
+
+$('.spud').live('mouseout', function() {
+	
+$(this).attr("src","styles/images/upright_potato.png");
+	});
 
 
 
@@ -28,9 +36,13 @@ function viewpost(key) {
 
 function deletepost(key) {
 $("#delete"+key).fadeIn(300);
+$("#spud"+key).attr("src","styles/images/upright_potato_surprise.png");
+
 
 }
 
 function canceldelete(key) {
 $("#delete"+key).hide();
+$("#spud"+key).attr("src","styles/images/upright_potato_eyes.png");
+
 }

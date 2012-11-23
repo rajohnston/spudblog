@@ -35,7 +35,13 @@ class ViewPost(webapp2.RequestHandler):
   path = os.path.join(os.path.dirname(__file__), "../Views/html/viewpost.html" )    
   self.response.out.write(template.render(path, template_values))   
 
-      
+class Delete(webapp2.RequestHandler):
+ def get(self):
+  key = self.request.get('key')
+  post = Posts.get(key)
+  post.delete()
+  self.redirect('/')
+
 class AddorEdit(webapp2.RequestHandler):
  def get(self):
   base_template = "base.html"
@@ -83,5 +89,6 @@ class AddorEdit(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
 	('/',Home),
 	('/viewpost',ViewPost),
+	('/delete',Delete),	
 	('/edit',AddorEdit),
 	('/add',AddorEdit)],debug=True)
